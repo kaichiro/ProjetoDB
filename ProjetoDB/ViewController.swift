@@ -33,6 +33,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func handleCamera(_ sender: UIButton) {
         let photo = UIImagePickerController()
+        // mostra câmera
+        //photo.sourceType = .camera
+        // esta por caso do emulador
         photo.sourceType = .savedPhotosAlbum
         photo.delegate = self
         self.present(photo, animated: true, completion: nil)
