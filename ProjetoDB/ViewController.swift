@@ -15,6 +15,16 @@ class ViewController: UIViewController {
     // AppDelegate
     // var contactManager: NSFetchResultsController<Contact>!
     
+    @IBOutlet weak var olImage: UIImageView!
+    @IBOutlet weak var olNome: UITextField!
+    @IBOutlet weak var olTelefone: UITextField!
+    @IBAction func handleCamera(_ sender: UIButton) {
+    }
+    @IBAction func handleCancel(_ sender: UIButton) {
+    }
+    @IBAction func handleAdd(_ sender: UIButton) {
+    }
+    
     var contexto:  NSManagedObjectContext
     {
         let delegate = UIApplication.shared.delegate as! AppDelegate

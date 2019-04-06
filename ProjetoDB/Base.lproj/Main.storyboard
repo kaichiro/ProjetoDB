@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,25 +19,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hOt-sT-tQc">
-                                <rect key="frame" x="16" y="20" width="343" height="221"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hOt-sT-tQc">
+                                <rect key="frame" x="0.0" y="20" width="375" height="221"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="221" id="oPJ-jE-9jZ"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R23-7n-E7G">
-                                <rect key="frame" x="164" y="249" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R23-7n-E7G">
+                                <rect key="frame" x="172.5" y="246" width="30" height="30"/>
                                 <state key="normal" title="..."/>
+                                <connections>
+                                    <action selector="handleCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DCd-a7-lI7"/>
+                                </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oQQ-ND-7AR">
-                                <rect key="frame" x="139" y="287" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bgP-wZ-t7x">
-                                <rect key="frame" x="139" y="348" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Informe o telefone aqui" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bgP-wZ-t7x">
+                                <rect key="frame" x="56.5" y="406" width="262.5" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -45,16 +42,46 @@
                                 <rect key="frame" x="16" y="495" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="cancel"/>
+                                <connections>
+                                    <action selector="handleCancel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G1v-z2-eEr"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UU5-EC-Jnd">
                                 <rect key="frame" x="313" y="495" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="add"/>
+                                <connections>
+                                    <action selector="handleAdd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jo3-Ua-rnu"/>
+                                </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Informe o nome aqui" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oQQ-ND-7AR">
+                                <rect key="frame" x="57" y="326" width="262.5" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="oQQ-ND-7AR" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.7" id="5mv-34-MJS"/>
+                            <constraint firstItem="bgP-wZ-t7x" firstAttribute="width" secondItem="oQQ-ND-7AR" secondAttribute="width" id="ANN-sI-xOY"/>
+                            <constraint firstItem="bgP-wZ-t7x" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Gab-bw-unE"/>
+                            <constraint firstItem="hOt-sT-tQc" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="L5x-py-Ftm"/>
+                            <constraint firstItem="R23-7n-E7G" firstAttribute="top" secondItem="hOt-sT-tQc" secondAttribute="bottom" constant="5" id="Uce-wp-yaH"/>
+                            <constraint firstItem="R23-7n-E7G" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="aYX-Le-Rc3"/>
+                            <constraint firstItem="oQQ-ND-7AR" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="oTV-dE-WcZ"/>
+                            <constraint firstItem="hOt-sT-tQc" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="pzh-V1-1bB"/>
+                            <constraint firstItem="hOt-sT-tQc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="qRF-IQ-3Y6"/>
+                            <constraint firstItem="oQQ-ND-7AR" firstAttribute="top" secondItem="R23-7n-E7G" secondAttribute="bottom" constant="50" id="wck-fn-9Ik"/>
+                            <constraint firstItem="bgP-wZ-t7x" firstAttribute="top" secondItem="oQQ-ND-7AR" secondAttribute="bottom" constant="50" id="zK4-5T-YXK"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="olImage" destination="hOt-sT-tQc" id="LGl-Z9-xjw"/>
+                        <outlet property="olNome" destination="oQQ-ND-7AR" id="myb-qF-1By"/>
+                        <outlet property="olTelefone" destination="bgP-wZ-t7x" id="OSt-wf-z1C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
