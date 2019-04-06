@@ -45,6 +45,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func handleAdd(_ sender: UIButton) {
+        let contact = Contact(context: contexto)
+        
+        contact.nome = olNome.text
+        contact.fone = olTelefone.text
+        contact.foto = olImage.image
+        
+        do
+        {
+            try contexto.save()
+        }
+        catch
+        {
+            
+        }
     }
     
     var contexto:  NSManagedObjectContext
