@@ -9,19 +9,38 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate
+{
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        // Busca os dados da imagem no dicionario
+        let photo = info[UIImagePickerControllerOriginalImage] as! UIImage
+        // Seta o imageview para a image escolhida
+        olImage.image = photo
+        // garante a saida do picker da tela
+        picker.dismiss(animated: true, completion: nil)
+    }
 
     // Obtem uma referÊncia par ao objeto da classe
     // AppDelegate
     // var contactManager: NSFetchResultsController<Contact>!
     
     @IBOutlet weak var olImage: UIImageView!
+    
     @IBOutlet weak var olNome: UITextField!
+    
     @IBOutlet weak var olTelefone: UITextField!
+    
     @IBAction func handleCamera(_ sender: UIButton) {
+        let photo = UIImagePickerController()
+        photo.sourceType = .savedPhotosAlbum
+        photo.delegate = self
+        self.present(photo, animated: true, completion: nil)
     }
+    
     @IBAction func handleCancel(_ sender: UIButton) {
     }
+    
     @IBAction func handleAdd(_ sender: UIButton) {
     }
     
