@@ -7,9 +7,21 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
 
+    // Obtem uma referÊncia par ao objeto da classe
+    // AppDelegate
+    // var contactManager: NSFetchResultsController<Contact>!
+    
+    var contexto:  NSManagedObjectContext
+    {
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        // Retorna o objeto responsável pelo gerenciamento de Objetos persistentes
+        return delegate.persistentContainer.viewContext
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +32,4 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
 }
-
